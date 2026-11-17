@@ -1,0 +1,6 @@
+{
+  "name": "AL-SMAR",
+  "description": "AL-SMAR Ultimate Pro — Voice-first autonomous AI assistant with Smart Auto model routing, multi-agent execution, Android automation, live camera vision, internet research, document intelligence, and long-term memory.",
+  "requestFramePermissions": ["microphone", "camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

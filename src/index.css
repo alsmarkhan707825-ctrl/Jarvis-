@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', system-ui, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    color-scheme: dark;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.royal-canvas {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(14, 165, 233, 0.14) 0%, rgba(11, 23, 61, 0) 48%),
+    radial-gradient(circle at 50% 0%, rgba(28, 63, 158, 0.34) 0%, rgba(6, 13, 36, 0) 60%),
+    radial-gradient(circle at 85% 20%, rgba(212, 175, 55, 0.09) 0%, rgba(6, 13, 36, 0) 42%),
+    linear-gradient(180deg, #030714 0%, #06102B 52%, #030714 100%);
+}
+
+.jarvis-grid-overlay {
+  background-image:
+    linear-gradient(to right, rgba(56, 189, 248, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.glass-panel {
+  background: rgba(6, 10, 24, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.glass-panel-gold {
+  background: rgba(7, 11, 26, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.jarvis-hud-card {
+  background: linear-gradient(180deg, rgba(6, 15, 40, 0.86) 0%, rgba(4, 9, 24, 0.92) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  box-shadow: 0 0 24px rgba(14, 165, 233, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+@keyframes jarvisSpinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes jarvisSpinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes jarvisScanSweep {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.55;
+  }
+  80% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes jarvisRipple {
+  0% {
+    transform: scale(0.86);
+    opacity: 0.65;
+  }
+  100% {
+    transform: scale(1.42);
+    opacity: 0;
+  }
+}
+
+.jarvis-spin-slow {
+  animation: jarvisSpinSlow 16s linear infinite;
+}
+
+.jarvis-spin-fast {
+  animation: jarvisSpinSlow 5.5s linear infinite;
+}
+
+.jarvis-spin-reverse {
+  animation: jarvisSpinReverse 11s linear infinite;
+}
+
+.jarvis-scan-sweep {
+  animation: jarvisScanSweep 3.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.jarvis-ripple {
+  animation: jarvisRipple 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
